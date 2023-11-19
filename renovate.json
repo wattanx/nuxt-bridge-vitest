@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "@nuxtjs"
+  ],
+  "ignoreDeps": [
+    "vue"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "vue"
+      ],
+      "allowedVersions": "!/3$/"
+    },
+    {
+      "matchPackageNames": [
+        "vue-router"
+      ],
+      "allowedVersions": "!/4$/"
+    },
+    {
+      "matchPackageNames": [
+        "nuxt"
+      ],
+      "allowedVersions": "!/3$/"
+    },
+    {
+      "groupName": "nuxt core",
+      "groupSlug": "nuxt",
+      "matchPackageNames": [
+        "nuxi"
+      ],
+      "matchPackagePatterns": [
+        "^@nuxt/"
+      ]
+    }
+  ]
+}
