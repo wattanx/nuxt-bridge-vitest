@@ -37,8 +37,5 @@
     "overrides": {
       "@wattanx/nuxt-bridge-vitest": "workspace:*"
     }
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
