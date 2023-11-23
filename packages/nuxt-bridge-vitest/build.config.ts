@@ -1,6 +1,6 @@
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  externals: ["#imports", "@nuxt/schema", "vite", "vitest", "unimport"],
+  externals: ["@nuxt/schema", "vite", "vitest"],
   failOnWarn: false,
 });

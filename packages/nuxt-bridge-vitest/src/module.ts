@@ -3,9 +3,9 @@ import mockTransform from "./modules/mock";
 
 export default defineNuxtModule({
   meta: {
-    name: "nuxt-bridge-vitest",
+    name: "@wattanx/nuxt-bridge-vitest",
   },
-  async setup() {
+  async setup(_, nuxt) {
     await installModule(mockTransform);
   },
 });

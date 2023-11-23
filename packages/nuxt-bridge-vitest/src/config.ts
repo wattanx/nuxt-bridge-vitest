@@ -15,7 +15,7 @@ async function startNuxtAndGetViteConfig(
   rootDir = process.cwd(),
   overrides?: Partial<NuxtConfig>
 ) {
-  const { loadNuxt, buildNuxt } = await import("@nuxt/kit");
+  const { loadNuxt, buildNuxt, writeTypes } = await import("@nuxt/kit");
   const nuxt = await loadNuxt({
     cwd: rootDir,
     dev: false,
@@ -23,33 +23,27 @@ async function startNuxtAndGetViteConfig(
       {
         ssr: false,
         test: true,
-        modules: ["@wattanx/nuxt-bridge-vitest"],
         bridge: {
           vite: true,
         },
+        modules: ["@wattanx/nuxt-bridge-vitest"],
       },
       overrides
     ),
   });
 
-  // if (
-  //   !nuxt.options._installedModules.find(
-  //     (i) => i?.meta?.name === "@wattanx/nuxt-bridge-vitest"
-  //   )
-  // ) {
-  //   throw new Error(
-  //     "Failed to load @wattanx/nuxt-bridge-vitest module. You may need to add it to your nuxt.config."
-  //   );
-  // }
-
   const promise = new Promise<GetVitestConfigOptions>((resolve, reject) => {
     nuxt.hook("vite:extendConfig", (viteConfig, { isClient }) => {
       if (isClient) {
         resolve({ nuxt, viteConfig });
-        throw new Error("_stop_");
       }
     });
     buildNuxt(nuxt).catch((err) => {
+      if (!err.toString().includes("_stop_")) {
+        reject(err);
+      }
+    });
+    writeTypes(nuxt).catch((err) => {
       if (!err.toString().includes("_stop_")) {
         reject(err);
       }
@@ -60,7 +54,7 @@ async function startNuxtAndGetViteConfig(
 }
 
 const vuePlugins = {
-  "vite:vue": [vuePlugin, "vue"],
+  "vite:vue2": [vuePlugin, "vue"],
 } as const;
 
 export async function getVitestConfigFromNuxt(
@@ -116,19 +110,22 @@ export async function getVitestConfigFromNuxt(
           options.nuxt.options.nitro?.routeRules
         ),
       },
-      deps: {
-        ...options.viteConfig.test?.deps,
-        inline: [
-          // vite-node defaults
-          /\/node_modules\/(.*\/)?(nuxt|nuxt3)\//,
-          /^#/,
-          ...(options.nuxt.options.build.transpile.filter(
-            (r) => typeof r === "string" || r instanceof RegExp
-          ) as Array<string | RegExp>),
-          ...(typeof options.viteConfig.test?.deps?.inline !== "boolean"
-            ? typeof options.viteConfig.test?.deps?.inline
-            : []),
-        ],
+      server: {
+        deps: {
+          ...options.viteConfig.test?.server?.deps,
+          inline: [
+            // vite-node defaults
+            /\/node_modules\/(.*\/)?(nuxt|nuxt3)\//,
+            /^#/,
+            ...(options.nuxt.options.build.transpile.filter(
+              (r) => typeof r === "string" || r instanceof RegExp
+            ) as Array<string | RegExp>),
+            ...(typeof options.viteConfig.test?.server?.deps?.inline !==
+            "boolean"
+              ? typeof options.viteConfig.test?.server?.deps?.inline
+              : []),
+          ],
+        },
       },
     },
   };
