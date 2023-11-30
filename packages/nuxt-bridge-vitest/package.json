@@ -49,8 +49,8 @@
     "unimport": "^3.6.0"
   },
   "devDependencies": {
-    "@nuxt/bridge": "npm:@nuxt/bridge-edge@3.0.0-rc.3-28343365.3c40b3f",
-    "@nuxt/bridge-schema": "3.0.0-rc.3",
+    "@nuxt/bridge": "3.0.0-rc.4",
+    "@nuxt/bridge-schema": "3.0.0-rc.4",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/module-builder": "0.5.2",
     "@nuxt/schema": "3.8.0",
