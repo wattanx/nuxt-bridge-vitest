@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from "@nuxt/bridge";
+import { fileURLToPath } from "node:url";
 
 export default defineNuxtConfig({
   ssr: false,
@@ -17,8 +18,9 @@ export default defineNuxtConfig({
       alias: {
         "@wattanx/nuxt-bridge-vitest/config":
           "../packages/nuxt-bridge-vitest/src/config",
-        "@wattanx/nuxt-bridge-vitest/utils":
-          "../packages/nuxt-bridge-vitest/src/utils",
+        "@wattanx/nuxt-bridge-vitest/utils": fileURLToPath(
+          new URL("../packages/nuxt-bridge-vitest/src/utils", import.meta.url)
+        ),
       },
     },
   },
