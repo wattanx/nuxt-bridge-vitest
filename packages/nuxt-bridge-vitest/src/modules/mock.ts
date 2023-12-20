@@ -3,7 +3,7 @@ import type { Import, Unimport } from "unimport";
 import { createMockPlugin } from "./plugins/mock";
 import type { MockPluginContext } from "./plugins/mock";
 
-const PLUGIN_NAME = "nuxt:mock-nuxt-import-transform";
+const PLUGIN_NAME = "nuxt:vitest:mock-transform";
 
 export interface MockImportInfo {
   name: string;
