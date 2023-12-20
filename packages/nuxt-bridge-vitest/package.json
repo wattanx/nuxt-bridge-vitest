@@ -38,7 +38,7 @@
   "peerDependencies": {
     "@vitejs/plugin-vue2": "*",
     "vite": "*",
-    "vitest": "^0.34.6"
+    "vitest": "^1.1.0"
   },
   "dependencies": {
     "@nuxt/kit": "3.8.2",
