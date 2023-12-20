@@ -1,7 +1,7 @@
 import { test, expect, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 import Index from "./index.vue";
-import { mockNuxtImport } from "@wattanx/nuxt-bridge-vitest/utils";
+import { mockNuxtImport } from "@wattanx/nuxt-bridge-vitest/runtime";
 
 const { push } = vi.hoisted(() => {
   return {

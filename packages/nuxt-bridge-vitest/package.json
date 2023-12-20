@@ -12,10 +12,10 @@
       "require": "./dist/config.cjs",
       "import": "./dist/config.mjs"
     },
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "require": "./dist/utils.cjs",
-      "import": "./dist/utils.mjs"
+    "./runtime": {
+      "types": "./dist/runtime.d.ts",
+      "require": "./dist/runtime.cjs",
+      "import": "./dist/runtime.mjs"
     },
     ".": {
       "types": "./dist/module.d.ts",

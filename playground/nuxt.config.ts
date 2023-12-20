@@ -18,8 +18,8 @@ export default defineNuxtConfig({
       alias: {
         "@wattanx/nuxt-bridge-vitest/config":
           "../packages/nuxt-bridge-vitest/src/config",
-        "@wattanx/nuxt-bridge-vitest/utils": fileURLToPath(
-          new URL("../packages/nuxt-bridge-vitest/src/utils", import.meta.url)
+        "@wattanx/nuxt-bridge-vitest/runtime": fileURLToPath(
+          new URL("../packages/nuxt-bridge-vitest/src/runtime", import.meta.url)
         ),
       },
     },

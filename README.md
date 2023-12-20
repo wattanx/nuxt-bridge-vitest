@@ -35,6 +35,6 @@ Currently only `mockNuxtImport` is supported.
 
 ### mockNuxtImport
 
-The basic usage is the same as [nuxt-vitest](https://github.com/danielroe/nuxt-vitest).
+The basic usage is the same as [@nuxt/test-utils](https://github.com/nuxt/test-utils).
 
-https://github.com/danielroe/nuxt-vitest#mocknuxtimport
+https://nuxt.com/docs/getting-started/testing#mocknuxtimport
