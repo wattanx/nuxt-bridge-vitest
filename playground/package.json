@@ -10,11 +10,12 @@
     "test:ui": "vitest --ui"
   },
   "devDependencies": {
-    "@nuxt/bridge": "3.0.0-rc.4",
-    "@nuxt/bridge-schema": "3.0.0-rc.4",
+    "@nuxt/bridge": "3.1.0",
+    "@nuxt/bridge-schema": "3.1.0",
     "@vitejs/plugin-vue2": "^2.3.1",
     "@vue/test-utils": "^1.3.6",
     "@wattanx/nuxt-bridge-vitest": "workspace:*",
+    "flush-promises": "^1.0.2",
     "happy-dom": "^13.3.1",
     "nuxi": "3.9.0",
     "nuxt": "2.17.2",

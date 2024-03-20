@@ -1,7 +1,8 @@
 import { test, expect, vi } from "vitest";
 import { mount } from "@vue/test-utils";
-import Index from "./index.vue";
+import flushpromises from "flush-promises";
 import { mockNuxtImport } from "@wattanx/nuxt-bridge-vitest/runtime";
+import Index from "./index.vue";
 
 const { push } = vi.hoisted(() => {
   return {
@@ -15,10 +16,14 @@ mockNuxtImport("useRouter", () => {
   });
 });
 
-test("index", async () => {
+test.only("index", async () => {
+  console.log("before mount");
   const wrapper = mount(Index);
+  await flushpromises();
 
-  expect(wrapper.text()).toContain("Hello World");
+  expect(wrapper.text()).toContain(
+    "Hello, This is an auto-imported component!"
+  );
 });
 
 test("save", async () => {

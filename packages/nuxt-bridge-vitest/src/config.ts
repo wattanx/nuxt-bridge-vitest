@@ -1,4 +1,5 @@
 import type { Nuxt, NuxtConfig } from "@nuxt/schema";
+import { createResolver } from "@nuxt/kit";
 import type { InlineConfig as VitestConfig } from "vitest";
 import { defineConfig } from "vite";
 import type { InlineConfig } from "vite";
@@ -173,12 +174,16 @@ export async function getVitestConfigFromNuxt(
     ) as string[];
   }
 
+  const resolver = createResolver(import.meta.url);
+  resolvedConfig.test.setupFiles.unshift(resolver.resolve("./entry"));
+
   return resolvedConfig;
 }
 
 export function defineVitestConfig(
   config: InlineConfig & { test?: VitestConfig } = {}
 ) {
+  // @ts-expect-error
   return defineConfig(async () => {
     // When Nuxt module calls `startVitest`, we don't need to call `getVitestConfigFromNuxt` again
     if (process.env.__NUXT_VITEST_RESOLVED__) return config;
