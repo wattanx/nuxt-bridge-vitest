@@ -2,16 +2,19 @@ import { defineNuxtConfig } from "@nuxt/bridge";
 import { fileURLToPath } from "node:url";
 
 export default defineNuxtConfig({
-  ssr: false,
   telemetry: false,
   bridge: {
     meta: false,
     vite: true,
     nitro: true,
+    macros: {
+      pageMeta: true,
+    },
   },
   build: {
     quiet: true,
   },
+  components: true,
   vite: {
     // TODO: fix bug with stubbing root package
     resolve: {
@@ -24,4 +27,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  plugins: ["~/plugins/hello"],
 });

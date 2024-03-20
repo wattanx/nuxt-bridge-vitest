@@ -1,5 +1,7 @@
-import { defineNuxtModule, installModule } from "@nuxt/kit";
+import { defineNuxtModule, installModule, addVitePlugin } from "@nuxt/kit";
+import { join } from "pathe";
 import mockTransform from "./modules/mock";
+import { NuxtRootStubPlugin } from "./modules/plugins/entry";
 
 export default defineNuxtModule({
   meta: {
@@ -7,5 +9,11 @@ export default defineNuxtModule({
   },
   async setup(_, nuxt) {
     await installModule(mockTransform);
+
+    addVitePlugin(
+      NuxtRootStubPlugin.vite({
+        entry: join(nuxt.options.buildDir, "client.js"),
+      })
+    );
   },
 });
