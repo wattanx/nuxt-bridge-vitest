@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   telemetry: false,
   bridge: {
     meta: false,
-    vite: true,
+    vite: false,
     nitro: true,
   },
   build: {

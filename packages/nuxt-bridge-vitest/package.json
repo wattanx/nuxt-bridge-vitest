@@ -21,6 +21,16 @@
       "types": "./dist/module.d.ts",
       "require": "./module.cjs",
       "import": "./dist/module.mjs"
+    },
+    "./e2e": {
+      "types": "./dist/e2e.d.ts",
+      "require": "./dist/e2e.cjs",
+      "import": "./dist/e2e.mjs"
+    },
+    "./playwright": {
+      "types": "./dist/playwright.d.ts",
+      "require": "./dist/playwright.cjs",
+      "import": "./dist/playwright.mjs"
     }
   },
   "files": [
@@ -43,28 +53,37 @@
   "dependencies": {
     "@nuxt/kit": "3.11.2",
     "c12": "^1.10.0",
+    "consola": "^3.2.3",
     "defu": "^6.1.4",
     "destr": "^2.0.3",
     "estree-walker": "^3.0.3",
+    "execa": "^8.0.1",
+    "get-port-please": "^3.1.2",
     "knitwork": "^1.1.0",
     "magic-string": "^0.30.10",
+    "ofetch": "^1.3.4",
+    "pathe": "^1.1.2",
     "rollup": "^4.17.2",
     "scule": "^1.3.0",
     "unimport": "^3.7.1",
     "unplugin": "^1.10.1"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^10.7.0",
+    "@jest/globals": "^29.7.0",
     "@nuxt/bridge": "3.2.1",
     "@nuxt/bridge-schema": "3.2.1",
     "@nuxt/eslint-config": "^0.3.13",
     "@nuxt/module-builder": "0.6.0",
     "@nuxt/schema": "3.11.2",
+    "@playwright/test": "^1.44.0",
     "@types/node": "^20.12.12",
     "changelogen": "^0.5.5",
     "eslint": "8.57.0",
     "jsdom": "^24.0.0",
     "nuxi": "^3.11.1",
     "nuxt": "2.17.2",
+    "playwright-core": "^1.44.0",
     "unbuild": "^2.0.0",
     "vite": "^5.1.6"
   },
