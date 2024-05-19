@@ -1,6 +1,6 @@
 {
   "name": "@wattanx/nuxt-bridge-vitest",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "https://github.com/wattanx/nuxt-bridge-vitest",
   "license": "MIT",
   "main": "./module.cjs",
