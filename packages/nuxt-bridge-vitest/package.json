@@ -69,7 +69,7 @@
     "unplugin": "^1.10.1"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^10.7.0",
+    "@cucumber/cucumber": "^11.0.1",
     "@jest/globals": "^29.7.0",
     "@nuxt/bridge": "3.2.1",
     "@nuxt/bridge-schema": "3.2.1",
